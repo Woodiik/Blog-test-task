@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { contactsReducer } from './contactSlice';
-import { filterReducer } from './filterSlice';
+//import { contactsReducer } from './contactSlice';
+//import { filterReducer } from './filterSlice';
 import { authReducer } from './authSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -21,8 +21,8 @@ const axiosMiddlewareOptions = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    contacts: contactsReducer,
-    filter: filterReducer,
+    //contacts: contactsReducer,
+    //filter: filterReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

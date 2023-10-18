@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/authOperationsFireBase';
-import { FormStyles, Label, LogInButton } from './Login.styled';
+import { FormStyles, Input, Label, LogInButton } from './Login.styled';
 
 export const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -29,11 +29,11 @@ export const LogIn = () => {
     <FormStyles onSubmit={handleSubmit}>
       <Label>
         Email
-        <input type="mail" name="email" onChange={handleChange} />
+        <Input type="mail" name="email" onChange={handleChange} />
       </Label>
       <Label>
         Password
-        <input type="password" name="password" onChange={handleChange} />
+        <Input type="password" name="password" onChange={handleChange} />
       </Label>
       <LogInButton type="submit">Log In</LogInButton>
     </FormStyles>

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/authOperationsFireBase';
-import { FormStyles, Label, SignUpButton } from './Register.styled';
+import { FormStyles, Input, Label, SignUpButton } from './Register.styled';
 
 export const Register = () => {
-  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
@@ -12,9 +11,6 @@ export const Register = () => {
     const { name, value } = e.target;
 
     switch (name) {
-      case 'name':
-        setName(value);
-        break;
       case 'password':
         setPassword(value);
         break;
@@ -27,22 +23,19 @@ export const Register = () => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(register({ name, email, password }));
+    dispatch(register({ email, password }));
   };
   return (
     <FormStyles onSubmit={handleSubmit}>
       <Label>
-        Name
-        <input type="text" name="name" onChange={handleChange} />
+        Email
+        <Input type="mail" name="email" onChange={handleChange} />
       </Label>
       <Label>
         Password
-        <input type="password" name="password" onChange={handleChange} />
+        <Input type="password" name="password" onChange={handleChange} />
       </Label>
-      <Label>
-        Email
-        <input type="mail" name="email" onChange={handleChange} />
-      </Label>
+
       <SignUpButton type="submit">Sign Up</SignUpButton>
     </FormStyles>
   );

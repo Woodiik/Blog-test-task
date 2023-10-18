@@ -1,41 +1,41 @@
 import styled from 'styled-components';
 
-import { ClipLoader } from 'react-spinners';
-
 export const FormStyles = styled.form`
   display: flex;
   flex-direction: column;
+  max-width: 400px;
+  margin: 100px auto 0;
   padding: 20px;
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
+
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 20px;
-`;
-export const SignUpButton = styled.button`
-  position: relative;
-  padding: 8px;
-  background-color: #808080;
-  color: white;
-  border: none;
-  transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
-  :hover {
-    background-color: #696969;
-  }
-  :active {
-    transform: scale(0.9);
-  }
-  :disabled {
-    background-color: rgb(128, 128, 128, 0.5);
-  }
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
 `;
 
-export const Loader = styled(ClipLoader)`
-  position: absolute;
-  top: 4px;
-  left: 6px;
+export const Input = styled.input`
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px 0;
+`;
+
+export const SignUpButton = styled.button`
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
