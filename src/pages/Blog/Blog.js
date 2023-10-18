@@ -17,7 +17,6 @@ import { Comment } from 'components/Comment/Comment';
 
 import {
   BlogContainer,
-  BlogHeader,
   PostList,
   PostItem,
   PostTitle,
