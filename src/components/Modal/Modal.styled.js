@@ -10,7 +10,6 @@ export const ModalBackdrop = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
 `;
 
 export const ModalContainer = styled.div`
@@ -21,6 +20,7 @@ export const ModalContainer = styled.div`
   width: 90%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 999;
 `;
 
 export const Title = styled.h2`

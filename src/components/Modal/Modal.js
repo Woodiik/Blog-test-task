@@ -1,9 +1,20 @@
 import { EditProfile } from 'components/EditProfile/EditProfile';
 import { ModalContainer, ModalBackdrop, Title } from './Modal.styled';
+import ReactDOM from 'react-dom';
+import { useRef } from 'react';
 
 export const Modal = ({ userData, updateUserData, toggleModal }) => {
-  return (
-    <ModalBackdrop>
+  const portalRoot = document.getElementById('modal-root');
+  const modalRef = useRef();
+
+  const handleBackdropClick = event => {
+    if (modalRef.current === event.target) {
+      toggleModal();
+    }
+  };
+
+  return ReactDOM.createPortal(
+    <ModalBackdrop ref={modalRef} onClick={handleBackdropClick}>
       <ModalContainer>
         <Title>Edit your data</Title>
         <EditProfile
@@ -12,6 +23,7 @@ export const Modal = ({ userData, updateUserData, toggleModal }) => {
           toggleModal={toggleModal}
         />
       </ModalContainer>
-    </ModalBackdrop>
+    </ModalBackdrop>,
+    portalRoot
   );
 };
