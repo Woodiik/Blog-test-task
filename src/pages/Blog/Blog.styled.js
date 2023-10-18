@@ -14,6 +14,9 @@ export const PostList = styled.ul`
 `;
 
 export const PostItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;

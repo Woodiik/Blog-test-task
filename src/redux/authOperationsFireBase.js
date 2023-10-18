@@ -80,7 +80,7 @@ async function getCurrentUser(auth) {
       if (user) {
         resolve(user);
       } else {
-        reject(new Error('Користувач не автентифікований.'));
+        reject(new Error('User is not authenthicated'));
       }
     });
   });

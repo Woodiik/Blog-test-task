@@ -16,9 +16,7 @@ export const CommentForm = ({ postId, onAddComment, getUserName, replyTo }) => {
     const userId = auth.currentUser.uid;
     getUserName(userId)
       .then(name => setUserName(name))
-      .catch(error =>
-        console.error('Помилка отримання імені користувача:', error)
-      );
+      .catch(error => console.error('userName error', error));
   }, [getUserName]);
 
   useEffect(() => {
@@ -46,7 +44,7 @@ export const CommentForm = ({ postId, onAddComment, getUserName, replyTo }) => {
         onChange={e => setComment(e.target.value)}
         ref={inputRef}
       />
-      <CommentButton type="submit">Додати коментар</CommentButton>
+      <CommentButton type="submit">Add comment</CommentButton>
     </CommentFormWrapper>
   );
 };

@@ -40,7 +40,7 @@ export const UserProfile = () => {
           setUserData(userDataFromFirebase);
         }
       } catch (error) {
-        console.error('Помилка завантаження даних користувача', error);
+        console.error('Downloading userData error', error);
       }
     };
 

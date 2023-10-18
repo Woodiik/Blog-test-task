@@ -132,33 +132,37 @@ export const Blog = () => {
     <BlogContainer>
       <CreatePostForm onCreatePost={onCreatePost} getUserName={getUserName} />
       {loading ? (
-        <p>Завантаження постів...</p>
+        <p>Loading posts...</p>
       ) : (
         <PostList>
           {posts.map(post => (
             <PostItem key={post.id}>
-              <PostTitle>{post.title}</PostTitle>
-              <PostAuthor>Author: {post.author || 'Anonymous'}</PostAuthor>
-              <PostContent>{post.content}</PostContent>
-              <CommentButton onClick={() => showCommentsForPost(post.id)}>
-                Show Comments
-              </CommentButton>
-              {visibleComments[post.id] && postComments[post.id] && (
-                <Comment
+              <div>
+                <PostTitle>{post.title}</PostTitle>
+                <PostAuthor>Author: {post.author || 'Anonymous'}</PostAuthor>
+                <PostContent>{post.content}</PostContent>
+              </div>
+              <div>
+                <CommentButton onClick={() => showCommentsForPost(post.id)}>
+                  Show Comments
+                </CommentButton>
+                {visibleComments[post.id] && postComments[post.id] && (
+                  <Comment
+                    postId={post.id}
+                    postComments={postComments}
+                    replyToChecker={replyToChecker}
+                    setFocusedInput={setFocusedInput}
+                  />
+                )}
+
+                <CommentForm
                   postId={post.id}
-                  postComments={postComments}
-                  replyToChecker={replyToChecker}
+                  onAddComment={addCommentToPost}
+                  getUserName={getUserName}
+                  replyTo={replyTo}
                   setFocusedInput={setFocusedInput}
                 />
-              )}
-
-              <CommentForm
-                postId={post.id}
-                onAddComment={addCommentToPost}
-                getUserName={getUserName}
-                replyTo={replyTo}
-                setFocusedInput={setFocusedInput}
-              />
+              </div>
             </PostItem>
           ))}
         </PostList>

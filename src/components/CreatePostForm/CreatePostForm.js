@@ -23,16 +23,14 @@ export const CreatePostForm = ({ onCreatePost, getUserName }) => {
     setContent(e.target.value);
   };
 
-  // Зробимо запит за ім'ям користувача при завантаженні компонента
   useEffect(() => {
-    // Отримуємо ім'я користувача на основі userId
-    const userId = auth.currentUser.uid; // Замініть на ідентифікатор поточного користувача
+    const userId = auth.currentUser.uid;
     getUserName(userId)
       .then(name => setUserName(name))
       .catch(error =>
         console.error('Помилка отримання імені користувача:', error)
       );
-  }, [getUserName]); // Порожній масив вказує, що цей ефект виконується лише після монтажу компонента
+  }, [getUserName]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -45,7 +43,7 @@ export const CreatePostForm = ({ onCreatePost, getUserName }) => {
     const newPost = {
       title,
       content,
-      author: userName, // Додайте ім'я користувача до поста
+      author: userName,
       comments: [],
     };
 
@@ -60,14 +58,14 @@ export const CreatePostForm = ({ onCreatePost, getUserName }) => {
       <FormHeader>Create new post</FormHeader>
       <form onSubmit={handleSubmit}>
         <div>
-          <FormLabel>Заголовок:</FormLabel>
+          <FormLabel>Title</FormLabel>
           <FormInput type="text" value={title} onChange={handleTitleChange} />
         </div>
         <div>
-          <FormLabel>Текст поста:</FormLabel>
+          <FormLabel>Post text</FormLabel>
           <FormTextarea value={content} onChange={handleContentChange} />
         </div>
-        <FormButton type="submit">Створити пост</FormButton>
+        <FormButton type="submit">Create post</FormButton>
       </form>
     </FormContainer>
   );
