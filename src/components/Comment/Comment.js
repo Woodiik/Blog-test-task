@@ -19,8 +19,8 @@ export const Comment = ({
 
   return (
     <CommentList>
-      {postComments[postId].map(comment => (
-        <CommentItem key={comment.id}>
+      {postComments[postId].map((comment, index) => (
+        <CommentItem key={index}>
           <CommentAuthor>{comment.author}:</CommentAuthor> {comment.text}
           <ReplyButton type="button" onClick={() => handleReplyClick(comment)}>
             Reply

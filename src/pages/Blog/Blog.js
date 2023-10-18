@@ -135,8 +135,8 @@ export const Blog = () => {
         <p>Loading posts...</p>
       ) : (
         <PostList>
-          {posts.map(post => (
-            <PostItem key={post.id}>
+          {posts.map((post, index) => (
+            <PostItem key={index}>
               <div>
                 <PostTitle>{post.title}</PostTitle>
                 <PostAuthor>Author: {post.author || 'Anonymous'}</PostAuthor>
